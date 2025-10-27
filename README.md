@@ -1,4 +1,4 @@
-# TauriNext
+# TauriNext — Shadcn
 
 A production-ready template for building cross-platform applications with Next.js and Tauri. Write once, deploy to web and desktop.
 
@@ -6,6 +6,7 @@ A production-ready template for building cross-platform applications with Next.j
 
 - **Dual Target**: Build for web (SPA) and desktop (native) from a single codebase
 - **Modern Stack**: Next.js 15 (App Router) + React 19 + TypeScript (strict mode)
+- **UI Components**: shadcn/ui with Tailwind CSS v3 for beautiful, accessible components
 - **Desktop Integration**: Tauri v2 for native desktop capabilities
 - **Static Export**: CSR-only architecture optimized for both web and desktop
 - **Type-Safe**: Full TypeScript support with strict mode enabled
@@ -53,19 +54,32 @@ npm run build:next
 ## Tech Stack
 
 - **Frontend**: Next.js 15.5.5, React 19.1.0, TypeScript 5
+- **UI Components**: shadcn/ui (New York style) with Tailwind CSS v3.4.18
 - **Desktop**: Tauri v2
-- **Styling**: CSS Modules (customizable)
+- **Icons**: Lucide React
 - **Build Mode**: Static Export (CSR only)
 
 ## Project Structure
 
 ```
-taurinext/
-├── src-next/           # Next.js application
-│   ├── app/           # App Router
-│   └── public/        # Static assets
-├── src-tauri/         # Tauri Rust application
-└── out/              # Build output (gitignored)
+taurinext-shadcn/
+├── src-next/                  # Next.js application
+│   ├── app/                  # App Router
+│   │   ├── page.tsx         # Counter app demo
+│   │   ├── layout.tsx       # Root layout
+│   │   └── globals.css      # Tailwind + CSS variables
+│   ├── components/           # React components
+│   │   └── ui/              # shadcn/ui components
+│   ├── lib/                  # Utilities
+│   │   └── utils.ts         # cn() helper
+│   ├── public/              # Static assets
+│   ├── tailwind.config.cjs  # Tailwind v3 config
+│   ├── postcss.config.cjs   # PostCSS config
+│   └── tsconfig.json        # TypeScript config
+├── src-tauri/                # Tauri Rust application
+├── components.json           # shadcn/ui config
+├── package.json             # Dependencies & scripts
+└── out/                     # Build output (gitignored)
 ```
 
 ## Important Notes
@@ -75,9 +89,20 @@ This template uses Next.js in **static export mode** for Tauri compatibility:
 - ✅ Client-side rendering (CSR)
 - ✅ Static site generation at build time
 - ✅ Client-side data fetching
+- ✅ shadcn/ui components (manually installed)
+- ✅ Tailwind CSS v3 with dark mode support
 - ❌ No server-side rendering (SSR)
 - ❌ No API routes
 - ❌ No server components that require runtime
+
+### Demo App
+
+Includes a simple **counter app** showcasing:
+- Button component (default, outline, ghost variants)
+- Card component with header, content, and footer
+- Badge component for count display
+- Lucide React icons
+- Responsive design with Tailwind utilities
 
 For detailed setup instructions, caveats, and best practices, see [SETUP.md](./SETUP.md).
 
